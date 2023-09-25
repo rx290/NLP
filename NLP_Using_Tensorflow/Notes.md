@@ -6,7 +6,7 @@
         It is done by using an encoding scheme, which means that the words are represented by some numbers, some famous encoding techniques are ASCII, Unicode etc.
 
 Sample code:
-   `` # importing tensorflow
+    # importing tensorflow
     import tensorflow as tf
     # importing keras
     from tensorflow import keras
@@ -31,4 +31,3 @@ Sample code:
     word_index = tokenizer.word_index
     print(word_index)
     # it will print a dictionary with all the encoded data presented in key value pair.
-``
