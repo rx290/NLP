@@ -6,6 +6,7 @@
         It is done by using an encoding scheme, which means that the words are represented by some numbers, some famous encoding techniques are ASCII, Unicode etc.
 
 Sample code:
+
     # importing tensorflow
     import tensorflow as tf
     
