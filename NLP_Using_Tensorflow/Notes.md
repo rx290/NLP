@@ -8,8 +8,10 @@
 Sample code:
     # importing tensorflow
     import tensorflow as tf
+    
     # importing keras
     from tensorflow import keras
+    
     # importing Tokenizer
     from tensorflow.keras.preprocessing.text import Tokenizer as tknz
 
@@ -22,12 +24,16 @@ Sample code:
     # creating an instance of the tokenizer
 
     tokenizer = tknz(num_words = 100)
+    
     """
     The parameter passed here is telling the tokenizer to keep n number of unique words in its memory
     """
+    
     # we will now be letting the tokenizer to go through our corpus/sentences and encode them
     tokenizer.fit_on_texts(sentences)
+    
     # we can then see the indexed/encoded words using the attribute word_index
     word_index = tokenizer.word_index
+    
     print(word_index)
     # it will print a dictionary with all the encoded data presented in key value pair.
