@@ -31,4 +31,4 @@ Sample code:
     word_index = tokenizer.word_index
     print(word_index)
     # it will print a dictionary with all the encoded data presented in key value pair.
-    ``
+``
