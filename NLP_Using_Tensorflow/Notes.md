@@ -116,3 +116,53 @@ Sample code:
     
     print(word_index)
     # it will print a dictionary with all the encoded data presented in key value pair.
+
+How does the tokenizer know if there are new words added?
+
+    What if we parse these sentences which have added new words in it? for e.g:
+
+    test_corpus = [
+        'I really love my cat',
+        'my cat mano loves my niece',
+    ]
+
+    word index ={'amazing':10,'dog':3, 'you':5, 'cat': 6,
+    'think':8, 'i': 4, 'is': 9, 'my':1, 'do':7,
+    'love':2}
+
+    test_seq = tokenizer.texts_to_sequences(test_corpus)
+    print(test_seq)
+
+    [[4,2,1,3], [1,6,1]]
+
+    **what happened here?**
+
+    Well the tokenizer, only recognized the words available in the word index forcing the sentence sequence to consist upon encoded words which it only knows.
+
+    **How to fix this behavior?**
+
+    There is this parameter/attribute called Out of Vocabulary token or oov_token of the tokenizer which can help maintain the sequence, so by adding this parameter in the code we can resolve this sequencing issue.
+
+    here is what the new tokenizer statement is going to look like.
+
+    tokenizer = tknz(num_words = 100, oov_token = "<OOV>")
+
+    test_corpus = [
+        'I really love my cat',
+        'my cat mano loves my niece',
+    ]
+
+    word index ={'amazing':10,'dog':3, 'you':5, 'cat': 6,
+    'think':8, 'i': 4, 'is': 9, 'my':1, 'do':7,
+    'love':2, '<OOV>':11}
+
+    test_seq = tokenizer.texts_to_sequences(test_corpus)
+    print(test_seq)
+
+    [[4,11,2,1,3], [1,6,11,11,1,11]]
+
+    You see now we have resolved the issue with correct sequencing.
+
+    **We have another problem at hand, how are we going to replace this oov token when parsing data to neural network for training?**
+
+    That is another good questions.
